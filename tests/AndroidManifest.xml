@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- package name must be unique so suffix with "tests" so package loader doesn't ignore us -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.demo.tests"
-          android:versionCode="1"
-          android:versionName="1.0">
-    <!-- We add an application tag here just so that we can indicate that
+    package="com.demo.tests"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:targetSdkVersion="8" />
+
+    <!--
+         We add an application tag here just so that we can indicate that
          this package needs to link against the android.test library,
-         which is needed when building test cases. -->
+         which is needed when building test cases.
+    -->
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
@@ -15,7 +20,9 @@
     the package of com.demo.  To run the tests use the command:
     "adb shell am instrument -w com.demo.tests/android.test.InstrumentationTestRunner"
     -->
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.demo"
-                     android:label="Tests for com.demo"/>
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for com.demo"
+        android:targetPackage="com.demo" />
+
 </manifest>
