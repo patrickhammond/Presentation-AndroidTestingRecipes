@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		Button b = (Button) findViewById(R.id.message_generator);
+		Button b = findById(R.id.message_generator);
 		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -26,5 +26,10 @@ public class MainActivity extends Activity {
 						Toast.LENGTH_SHORT).show();
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> T findById(int id) {
+		return (T) findViewById(id);
 	}
 }
